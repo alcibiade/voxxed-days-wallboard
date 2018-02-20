@@ -1,14 +1,14 @@
 import {AppPage} from './app.po';
 
-describe('wallboard-app App', () => {
+describe('Voxxed Days Luxembourg Wallboard App', () => {
     let page: AppPage;
 
     beforeEach(() => {
         page = new AppPage();
     });
 
-    it('should display welcome message', () => {
+    it('should display current conference', () => {
         page.navigateTo();
-        expect(page.getParagraphText()).toEqual('Welcome to app!');
+        expect(page.getParagraphText()).toContain('Current Talk');
     });
 });
