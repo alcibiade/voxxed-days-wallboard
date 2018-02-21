@@ -9,6 +9,6 @@ describe('Voxxed Days Luxembourg Wallboard App', () => {
 
     it('should display current conference', () => {
         page.navigateTo();
-        expect(page.getParagraphText()).toContain('Current Talk');
+        expect(page.getParagraphText()).toContain('works');
     });
 });

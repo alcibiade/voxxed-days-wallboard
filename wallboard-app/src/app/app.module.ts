@@ -3,17 +3,23 @@ import {NgModule} from '@angular/core';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 import {AppComponent} from './app.component';
+import {ScheduleService} from "./schedule.service";
+import {RoomScheduleComponent} from './room-schedule.component';
+import {HttpClient} from "@angular/common/http";
+import {RoomsListComponent} from './rooms-list.component';
 
 
 @NgModule({
     declarations: [
-        AppComponent
+        AppComponent,
+        RoomScheduleComponent,
+        RoomsListComponent
     ],
     imports: [
         BrowserModule,
         NgbModule.forRoot()
     ],
-    providers: [],
+    providers: [ScheduleService, HttpClient],
     bootstrap: [AppComponent]
 })
 export class AppModule {
