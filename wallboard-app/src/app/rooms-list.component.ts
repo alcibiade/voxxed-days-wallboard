@@ -1,4 +1,5 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {Slot} from "./schedule";
 
 @Component({
     selector: 'app-rooms-list',
@@ -6,6 +7,7 @@ import {Component, OnInit} from '@angular/core';
     styleUrls: ['./rooms-list.component.css']
 })
 export class RoomsListComponent implements OnInit {
+    @Input() slots: Slot[];
 
     constructor() {
     }

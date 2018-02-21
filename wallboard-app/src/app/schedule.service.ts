@@ -8,7 +8,7 @@ export class ScheduleService {
     }
 
     getSlots(): Slot[] {
-        return [];
+        return [new Slot(), new Slot()];
     }
 
 }
