@@ -5,7 +5,7 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {AppComponent} from './app.component';
 import {ScheduleService} from "./schedule.service";
 import {RoomScheduleComponent} from './room-schedule.component';
-import {HttpClient} from "@angular/common/http";
+import {HttpClient, HttpClientModule} from "@angular/common/http";
 import {RoomsListComponent} from './rooms-list.component';
 
 
@@ -17,6 +17,7 @@ import {RoomsListComponent} from './rooms-list.component';
     ],
     imports: [
         BrowserModule,
+        HttpClientModule,
         NgbModule.forRoot()
     ],
     providers: [ScheduleService, HttpClient],

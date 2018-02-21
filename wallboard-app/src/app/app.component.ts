@@ -11,6 +11,7 @@ export class AppComponent {
     private slots: Slot[];
 
     constructor(private scheduleService: ScheduleService) {
+        this.slots = []
     }
 
     ngOnInit() {
@@ -18,6 +19,6 @@ export class AppComponent {
     }
 
     getSlots(): void {
-        this.slots = this.scheduleService.getSlots();
+        this.scheduleService.getSlots().subscribe(s => this.slots = s.body.slots)
     }
 }
