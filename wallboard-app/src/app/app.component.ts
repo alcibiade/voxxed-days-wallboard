@@ -8,7 +8,7 @@ import {Slot} from "./schedule";
     styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-    private slots: Slot[];
+    slots: Slot[];
 
     constructor(private scheduleService: ScheduleService) {
         this.slots = []
