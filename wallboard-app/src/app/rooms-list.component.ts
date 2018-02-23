@@ -11,13 +11,10 @@ export class RoomsListComponent implements OnInit {
     rooms: Set<Room>;
 
     constructor(private scheduleService: ScheduleService) {
-        console.log('YYY');
         this.rooms = new Set();
     }
 
     ngOnInit() {
-        console.log('XXX');
-
         this.scheduleService.getSlots().subscribe(s => {
             let slots = s.body.slots;
             let rooms = new Map();
