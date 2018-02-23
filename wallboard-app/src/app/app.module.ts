@@ -8,6 +8,7 @@ import {RoomScheduleComponent} from './room-schedule.component';
 import {HttpClient, HttpClientModule} from "@angular/common/http";
 import {RoomsListComponent} from './rooms-list.component';
 import {RouterModule, Routes} from "@angular/router";
+import {SlotDetailsComponent} from './slot-details.component';
 
 const appRoutes: Routes = [
     {path: 'rooms', component: RoomsListComponent},
@@ -23,7 +24,8 @@ const appRoutes: Routes = [
     declarations: [
         AppComponent,
         RoomScheduleComponent,
-        RoomsListComponent
+        RoomsListComponent,
+        SlotDetailsComponent
     ],
     imports: [
         RouterModule.forRoot(appRoutes, {enableTracing: false}),
