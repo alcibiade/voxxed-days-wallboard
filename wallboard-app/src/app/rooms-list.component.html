@@ -1,6 +1,12 @@
-<p>
-    rooms-list works!
-</p>
-<ul>
-    <li *ngFor="let slot of slots">Slot {{slot}}</li>
-</ul>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-6">
+            <h2>
+                Available Rooms:
+            </h2>
+            <ul>
+                <li *ngFor="let room of rooms">Room {{room.roomId}} - {{room.roomName}}</li>
+            </ul>
+        </div>
+    </div>
+</div>
