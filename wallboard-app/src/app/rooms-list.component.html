@@ -5,7 +5,8 @@
                 Available Rooms:
             </h2>
             <ul>
-                <li *ngFor="let room of rooms">Room {{room.roomId}} - {{room.roomName}}</li>
+                <li *ngFor="let room of rooms"><a href="/room/{{room.roomId}}">Room {{room.roomId}} -
+                    {{room.roomName}}</a></li>
             </ul>
         </div>
     </div>

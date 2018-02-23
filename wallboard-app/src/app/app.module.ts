@@ -7,7 +7,17 @@ import {ScheduleService} from "./schedule.service";
 import {RoomScheduleComponent} from './room-schedule.component';
 import {HttpClient, HttpClientModule} from "@angular/common/http";
 import {RoomsListComponent} from './rooms-list.component';
+import {RouterModule, Routes} from "@angular/router";
 
+const appRoutes: Routes = [
+    {path: 'rooms', component: RoomsListComponent},
+    {path: 'room/:id', component: RoomScheduleComponent},
+    {
+        path: '',
+        redirectTo: '/rooms',
+        pathMatch: 'full'
+    }
+];
 
 @NgModule({
     declarations: [
@@ -16,6 +26,7 @@ import {RoomsListComponent} from './rooms-list.component';
         RoomsListComponent
     ],
     imports: [
+        RouterModule.forRoot(appRoutes, {enableTracing: false}),
         BrowserModule,
         HttpClientModule,
         NgbModule.forRoot()
