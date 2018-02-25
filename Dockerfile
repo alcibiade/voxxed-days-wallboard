@@ -5,6 +5,8 @@ RUN apt-get install -y curl
 RUN curl -sL https://deb.nodesource.com/setup_8.x | bash -
 RUN apt-get install -y nodejs
 
+COPY apache-httpd/httpd.conf /usr/local/apache2/conf/httpd.conf
+
 RUN mkdir /runtime
 COPY wallboard-app /runtime/
 WORKDIR /runtime
