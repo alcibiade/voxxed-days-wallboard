@@ -1,18 +1,19 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {ScheduleService} from "./schedule.service";
 import {Slot} from "./schedule";
 import {ActivatedRoute, Params, Router} from "@angular/router";
-import "rxjs/add/operator/switchMap";
+import {Observable, Subscription} from "rxjs/Rx";
 
 @Component({
     selector: 'app-room-schedule',
     templateUrl: './room-schedule.component.html',
     styleUrls: ['./room-schedule.component.css']
 })
-export class RoomScheduleComponent implements OnInit {
+export class RoomScheduleComponent implements OnInit, OnDestroy {
     currentTalk: Slot;
     nextTalk: Slot;
     slots: Slot[];
+    timer: Subscription;
 
     constructor(private route: ActivatedRoute,
                 private router: Router,
@@ -27,11 +28,19 @@ export class RoomScheduleComponent implements OnInit {
                 this.loadRoom(id);
             }
         });
+
+        this.timer = Observable.timer(2000, 1000).subscribe(this.tick);
+    }
+
+    ngOnDestroy(): void {
+        this.timer.unsubscribe();
+    }
+
+    tick(): void {
+        console.log('Tick !');
     }
 
     loadRoom(roomId: string): void {
-        console.log('Loading room ' + roomId);
-
         this.scheduleService.getSlots().subscribe(s => {
             let slots = s.body.slots;
             let localslots = [];
@@ -41,6 +50,8 @@ export class RoomScheduleComponent implements OnInit {
                     localslots.push(slot);
                 }
             }
+
+            console.log('Slots for room', roomId, 'are', localslots);
 
             this.slots = localslots;
         });
