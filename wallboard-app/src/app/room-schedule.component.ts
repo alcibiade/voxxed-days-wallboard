@@ -3,6 +3,7 @@ import {ScheduleService} from "./schedule.service";
 import {Slot} from "./schedule";
 import {ActivatedRoute, Params, Router} from "@angular/router";
 import {Observable, Subscription} from "rxjs/Rx";
+import {ClockService} from "./clock.service";
 
 @Component({
     selector: 'app-room-schedule',
@@ -13,11 +14,13 @@ export class RoomScheduleComponent implements OnInit, OnDestroy {
     currentTalk: Slot;
     nextTalk: Slot;
     slots: Slot[];
-    timer: Subscription;
+    timerSubscription: Subscription;
+    currentTime: string;
 
     constructor(private route: ActivatedRoute,
                 private router: Router,
-                private scheduleService: ScheduleService) {
+                private scheduleService: ScheduleService,
+                private clockService: ClockService) {
     }
 
     ngOnInit(): void {
@@ -29,15 +32,16 @@ export class RoomScheduleComponent implements OnInit, OnDestroy {
             }
         });
 
-        this.timer = Observable.timer(2000, 1000).subscribe(this.tick);
+        this.timerSubscription = Observable.timer(2000, 1000).subscribe(() => this.tick());
     }
 
     ngOnDestroy(): void {
-        this.timer.unsubscribe();
+        this.timerSubscription.unsubscribe();
     }
 
     tick(): void {
-        console.log('Tick !');
+        this.currentTime = this.clockService.getTime();
+        console.log('Tick, this is', this.currentTime);
     }
 
     loadRoom(roomId: string): void {

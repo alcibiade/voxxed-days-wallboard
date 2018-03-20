@@ -9,6 +9,7 @@ import {HttpClient, HttpClientModule} from "@angular/common/http";
 import {RoomsListComponent} from './rooms-list.component';
 import {RouterModule, Routes} from "@angular/router";
 import {SlotDetailsComponent} from './slot-details.component';
+import {ClockService} from "./clock.service";
 
 const appRoutes: Routes = [
     {path: 'rooms', component: RoomsListComponent},
@@ -33,7 +34,7 @@ const appRoutes: Routes = [
         HttpClientModule,
         NgbModule.forRoot()
     ],
-    providers: [ScheduleService, HttpClient],
+    providers: [ScheduleService, HttpClient, ClockService],
     bootstrap: [AppComponent]
 })
 export class AppModule {
