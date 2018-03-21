@@ -39,12 +39,12 @@ A docker-compose configuration is provided for a simplified setup.
 $ docker-compose up --build -d
 ```
 
-The target infrastructure listens on host port 8000 by default:
+The target infrastructure listens on host port 8080 by default:
 
 ```
 $ $ docker-ascii-map 
          +- voxxeddayswallboard_default -+
-  8000 ]-+ [✓] voxxeddayswallboard_web_1 |
+  8080 ]-+ [✓] voxxeddayswallboard_web_1 |
          |     voxxeddayswallboard_web   |
          +-------------------------------+
 
