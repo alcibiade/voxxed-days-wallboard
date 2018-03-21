@@ -11,8 +11,9 @@ import {ClockService} from "./clock.service";
     styleUrls: ['./room-schedule.component.css']
 })
 export class RoomScheduleComponent implements OnInit, OnDestroy {
-    currentTalk: Slot;
-    nextTalk: Slot;
+    roomName: string;
+    currentSlot: Slot;
+    nextSlot: Slot;
     slots: Slot[];
     timerSubscription: Subscription;
     currentTime: string;
@@ -40,8 +41,29 @@ export class RoomScheduleComponent implements OnInit, OnDestroy {
     }
 
     tick(): void {
-        this.currentTime = this.clockService.getTime();
-        console.log('Tick, this is', this.currentTime);
+        let updatedTime = this.clockService.getTime();
+
+        if (updatedTime != this.currentTime) {
+            this.currentTime = updatedTime;
+            let nextSlot = undefined;
+            let currentSlot = undefined;
+
+            this.slots.forEach(slot => {
+                if (slot.fromTime <= this.currentTime && slot.toTime > this.currentTime) {
+                    currentSlot = slot;
+                }
+
+                if (slot.fromTime > this.currentTime && (!nextSlot || nextSlot.fromTime > slot.fromTime)) {
+                    nextSlot = slot;
+                }
+            });
+
+            console.log(currentSlot, nextSlot);
+
+            this.nextSlot = nextSlot;
+            this.currentSlot = currentSlot;
+            this.roomName = nextSlot.roomName;
+        }
     }
 
     loadRoom(roomId: string): void {

@@ -1,23 +1,17 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-4">
-            <app-slot-details [slot]="currentTalk"></app-slot-details>
+            <app-slot-details *ngIf="currentSlot" [slot]="currentSlot"></app-slot-details>
         </div>
         <div class="col-md-4">
-            <app-slot-details [slot]="nextTalk"></app-slot-details>
+            <app-slot-details *ngIf="nextSlot" [slot]="nextSlot"></app-slot-details>
         </div>
         <div class="col-md-4">
-            <p>{{currentTime}}</p>
+
             <h2><a href="/">Voxxed Days Luxembourg</a></h2>
-            <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla mollis rutrum ex laoreet rhoncus. Morbi
-                vestibulum lorem sed nulla laoreet scelerisque. Aenean sit amet libero rutrum, varius risus et, rhoncus
-                neque. Morbi accumsan arcu in consectetur dapibus. Quisque condimentum lacinia malesuada. In magna erat,
-                accumsan in diam eget, cursus tincidunt sem. Aliquam nec nisl elit. Etiam eros leo, varius sed ipsum et,
-                euismod euismod erat. Morbi auctor sapien pulvinar, ullamcorper est ac, sodales tellus.</p>
-            <p>Duis viverra tortor accumsan, interdum dolor vel, consequat felis. Duis cursus augue at bibendum
-                elementum. Integer in commodo est. Ut tincidunt mauris quis turpis dignissim, vitae vehicula risus
-                pretium. Integer ex lectus, molestie eget posuere a, egestas in metus. Vestibulum ornare lobortis
-                rhoncus. Cras varius pretium justo, nec ornare ex varius sit amet. </p>
+
+            <p>Room name: {{roomName}}</p>
+            <p>Current time: {{currentTime}}</p>
         </div>
     </div>
 </div>

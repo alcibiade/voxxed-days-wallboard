@@ -1,5 +1,14 @@
-export class Talk {
+export class Speaker {
+    name: string;
+}
 
+export class Talk {
+    speakers: Speaker[];
+    lang: string;
+    summary: string;
+    summaryAsHtml: string;
+    talkType: string;
+    track: string;
 }
 
 export class Slot {
