@@ -32,8 +32,6 @@ export class RoomScheduleComponent implements OnInit, OnDestroy {
                 this.loadRoom(id);
             }
         });
-
-        this.timerSubscription = Observable.timer(2000, 1000).subscribe(() => this.tick());
     }
 
     ngOnDestroy(): void {
@@ -80,6 +78,7 @@ export class RoomScheduleComponent implements OnInit, OnDestroy {
             console.log('Slots for room', roomId, 'are', localslots);
 
             this.slots = localslots;
+            this.timerSubscription = Observable.timer(2000, 1000).subscribe(() => this.tick());
         });
     }
 
