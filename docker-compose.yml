@@ -4,6 +4,8 @@ services:
   web:
     build:
       context: .
+    environment:
+     - BUILD_ENV=dev
     ports:
      - 8080:80
     logging:
