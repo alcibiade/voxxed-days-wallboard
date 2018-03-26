@@ -1,17 +1,21 @@
 <div class="container-fluid">
+    <div class="row roominfo">
+        <div class="col-md-12">
+            <h2>Room {{roomName}} <span style="float: right;">{{currentTime}}</span></h2>
+        </div>
+    </div>
     <div class="row">
-        <div class="col-md-4">
+        <div class="col-md-4 talk-wrapper current">
+            <h3>Current Talk</h3>
             <app-slot-details *ngIf="currentSlot" [slot]="currentSlot"></app-slot-details>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-4 talk-wrapper next">
+            <h3>Next Talk</h3>
             <app-slot-details *ngIf="nextSlot" [slot]="nextSlot"></app-slot-details>
         </div>
         <div class="col-md-4">
 
-            <h2><a href="/">Voxxed Days Luxembourg</a></h2>
 
-            <p>Room name: {{roomName}}</p>
-            <p>Current time: {{currentTime}}</p>
         </div>
     </div>
 </div>

@@ -8,7 +8,7 @@ import {ClockService} from "./clock.service";
 @Component({
     selector: 'app-room-schedule',
     templateUrl: './room-schedule.component.html',
-    styleUrls: ['./room-schedule.component.css']
+    styleUrls: ['./room-schedule.component.sass']
 })
 export class RoomScheduleComponent implements OnInit, OnDestroy {
     roomName: string;
