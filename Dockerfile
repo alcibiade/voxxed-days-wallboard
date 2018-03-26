@@ -1,13 +1,11 @@
 FROM node:8-alpine as builder
 
-ENV BUILD_ENV prod
-
 RUN mkdir /runtime
 COPY wallboard-app /runtime/
 WORKDIR /runtime
 
 RUN npm install
-RUN ./node_modules/@angular/cli/bin/ng build --${BUILD_ENV}
+RUN ./node_modules/@angular/cli/bin/ng build --dev
 
 
 FROM httpd:2.4-alpine
