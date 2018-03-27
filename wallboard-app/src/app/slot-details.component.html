@@ -1,23 +1,20 @@
-<div class="container-fluid">
-    <div class="row" *ngIf="slot.talk; else noTalk">
+<div class="row" *ngIf="slot.talk; else noTalk">
+    <div class="col-md-12">
+        <p>From {{slot.fromTime}} to {{slot.toTime}}</p>
+        <h4>{{slot.talk.track}}</h4>
+        <h3>{{slot.talk.title}}</h3>
+        <p>Speakers:</p>
+        <ul>
+            <li *ngFor="let speaker of slot.talk.speakers">{{speaker.name}}</li>
+        </ul>
+        <div [innerHTML]="slot.talk.summaryAsHtml"></div>
+    </div>
+</div>
+<ng-template #noTalk>
+    <div class="row">
         <div class="col-md-12">
+            <h3>No talk description available</h3>
             <p>From {{slot.fromTime}} to {{slot.toTime}}</p>
-            <h4>{{slot.talk.track}}</h4>
-            <h3>{{slot.talk.title}}</h3>
-            <p>Speakers:</p>
-            <ul>
-                <li *ngFor="let speaker of slot.talk.speakers">{{speaker.name}}</li>
-            </ul>
-            <div [innerHTML]="slot.talk.summaryAsHtml"></div>
         </div>
     </div>
-    <ng-template #noTalk>
-        <div class="row">
-            <div class="col-md-12">
-                <h3>No talk description available</h3>
-                <p>From {{slot.fromTime}} to {{slot.toTime}}</p>
-            </div>
-        </div>
-    </ng-template>
-
-</div>
+</ng-template>

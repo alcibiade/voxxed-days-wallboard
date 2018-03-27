@@ -10,7 +10,7 @@
             <app-slot-details *ngIf="currentSlot" [slot]="currentSlot"></app-slot-details>
         </div>
         <div class="col-md-4 talk-wrapper next">
-            <h3>Next Talk</h3>
+            <h3>Next Talk at {{nextSlot.fromTime}}</h3>
             <app-slot-details *ngIf="nextSlot" [slot]="nextSlot"></app-slot-details>
         </div>
         <div class="col-md-4 feed">
