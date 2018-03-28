@@ -5,15 +5,15 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-md-4 talk-wrapper current">
+        <div class="col-md-5 talk-wrapper current">
             <h3>Current Talk</h3>
             <app-slot-details *ngIf="currentSlot" [slot]="currentSlot"></app-slot-details>
         </div>
-        <div class="col-md-4 talk-wrapper next">
+        <div class="col-md-5 talk-wrapper next">
             <h3>Next Talk at {{nextSlot.fromTime}}</h3>
             <app-slot-details *ngIf="nextSlot" [slot]="nextSlot"></app-slot-details>
         </div>
-        <div class="col-md-4 feed">
+        <div class="col-md-2 feed">
             <twitter-feed></twitter-feed>
         </div>
     </div>
