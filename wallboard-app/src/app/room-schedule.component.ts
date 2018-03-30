@@ -65,7 +65,7 @@ export class RoomScheduleComponent implements OnInit, OnDestroy {
     }
 
     loadRoom(roomId: string): void {
-        this.scheduleService.getSlots().subscribe(s => {
+        this.scheduleService.getSchedule().subscribe(s => {
             let slots = s.slots;
             let localslots = [];
 

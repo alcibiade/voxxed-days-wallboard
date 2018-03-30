@@ -15,7 +15,7 @@ export class RoomsListComponent implements OnInit {
     }
 
     ngOnInit() {
-        this.scheduleService.getSlots().subscribe(s => {
+        this.scheduleService.getSchedule().subscribe(s => {
             let slots = s.slots;
             let rooms = new Map();
 

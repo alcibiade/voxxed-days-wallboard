@@ -15,16 +15,17 @@ export class ScheduleService {
         this.http.get<Schedule>(environment.fullScheduleUrl, {observe: 'response'})
             .subscribe(
                 response => {
-                    this.schedule.next(response.body)
+                    this.schedule.next(response.body);
+                },
+                (err: any) => {
+                    this.schedule.error(err);
                 },
                 () => {
-                },
-                () => {
-                    this.schedule.complete()
+                    this.schedule.complete();
                 });
     }
 
-    getSlots(): Observable<Schedule> {
+    getSchedule(): Observable<Schedule> {
         return this.schedule;
     }
 
