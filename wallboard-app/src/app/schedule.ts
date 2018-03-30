@@ -1,5 +1,19 @@
+export class Link {
+    href: string;
+}
+
+export class SpeakerDetails {
+    firstName: string;
+    lastName: string;
+    twitter: string;
+    company: string;
+    avatarURL: string;
+}
+
 export class Speaker {
     name: string;
+    link: Link;
+    details: SpeakerDetails;
 }
 
 export class Talk {

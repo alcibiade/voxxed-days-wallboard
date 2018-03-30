@@ -1,13 +1,18 @@
 <div class="row" *ngIf="slot.talk; else noTalk">
     <div class="col-md-12">
-        <p>From {{slot.fromTime}} to {{slot.toTime}}</p>
-        <h4>{{slot.talk.track}}</h4>
-        <h3>{{slot.talk.title}}</h3>
-        <p>Speakers:</p>
-        <ul>
-            <li *ngFor="let speaker of slot.talk.speakers">{{speaker.name}}</li>
+        <!--<div class="slot">From {{slot.fromTime}} to {{slot.toTime}}</div>-->
+        <img *ngFor="let speaker of slot.talk.speakers"
+             class="speaker-avatar"
+             src="{{speaker.details.avatarURL}}"/>
+        <div class="track">{{slot.talk.track}}</div>
+        <div class="title">{{slot.talk.title}}</div>
+        <ul class="speakers">
+            <li *ngFor="let speaker of slot.talk.speakers">
+                {{speaker.details.firstName}} {{speaker.details.lastName}}
+                ({{speaker.details.company}})
+            </li>
         </ul>
-        <div [innerHTML]="slot.talk.summaryAsHtml"></div>
+        <div class="summary" [innerHTML]="slot.talk.summaryAsHtml"></div>
     </div>
 </div>
 <ng-template #noTalk>

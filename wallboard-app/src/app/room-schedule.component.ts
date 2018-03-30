@@ -12,8 +12,8 @@ import {ClockService} from "./clock.service";
 })
 export class RoomScheduleComponent implements OnInit, OnDestroy {
     roomName: string = '';
-    currentSlot: Slot = new Slot();
-    nextSlot: Slot = new Slot();
+    currentSlot: Slot;
+    nextSlot: Slot;
     slots: Slot[] = [];
     timerSubscription: Subscription;
     currentTime: string = '00:00';
