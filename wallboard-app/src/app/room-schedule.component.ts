@@ -11,12 +11,12 @@ import {ClockService} from "./clock.service";
     styleUrls: ['./room-schedule.component.sass']
 })
 export class RoomScheduleComponent implements OnInit, OnDestroy {
-    roomName: string;
-    currentSlot: Slot;
-    nextSlot: Slot;
-    slots: Slot[];
+    roomName: string = '';
+    currentSlot: Slot = new Slot();
+    nextSlot: Slot = new Slot();
+    slots: Slot[] = [];
     timerSubscription: Subscription;
-    currentTime: string;
+    currentTime: string = '00:00';
 
     constructor(private route: ActivatedRoute,
                 private router: Router,
@@ -66,7 +66,7 @@ export class RoomScheduleComponent implements OnInit, OnDestroy {
 
     loadRoom(roomId: string): void {
         this.scheduleService.getSlots().subscribe(s => {
-            let slots = s.body.slots;
+            let slots = s.slots;
             let localslots = [];
 
             for (let slot of slots) {
