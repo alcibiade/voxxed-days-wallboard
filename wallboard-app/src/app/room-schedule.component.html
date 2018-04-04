@@ -4,7 +4,13 @@
             <h2>Room {{roomName}} <span style="float: right;">{{currentTime}}</span></h2>
         </div>
     </div>
-    <div class="row">
+    <div class="row" *ngIf="mode == 'opening'">
+        <titles-opening></titles-opening>
+    </div>
+    <div class="row" *ngIf="mode == 'closing'">
+        <titles-closing></titles-closing>
+    </div>
+    <div class="row" *ngIf="mode == 'talk'">
         <div class="col-md-5 talk-wrapper current">
             <h3>Current Talk</h3>
             <app-slot-details *ngIf="currentSlot" [slot]="currentSlot"></app-slot-details>

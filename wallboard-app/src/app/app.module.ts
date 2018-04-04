@@ -12,6 +12,8 @@ import {SlotDetailsComponent} from './slot-details.component';
 import {ClockService} from "./clock.service";
 import {Ng4TwitterTimelineModule} from "ng4-twitter-timeline/lib";
 import {TwitterFeedComponent} from "./twitter-feed";
+import {TitlesOpeningComponent} from "./titles-opening.component";
+import {TitlesClosingComponent} from "./titles-closing.component";
 
 const appRoutes: Routes = [
     {path: 'rooms', component: RoomsListComponent},
@@ -29,7 +31,9 @@ const appRoutes: Routes = [
         RoomScheduleComponent,
         RoomsListComponent,
         SlotDetailsComponent,
-        TwitterFeedComponent
+        TwitterFeedComponent,
+        TitlesOpeningComponent,
+        TitlesClosingComponent
     ],
     imports: [
         RouterModule.forRoot(appRoutes, {enableTracing: false}),

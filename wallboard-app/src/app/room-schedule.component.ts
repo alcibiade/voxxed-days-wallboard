@@ -11,6 +11,7 @@ import {ClockService} from "./clock.service";
     styleUrls: ['./room-schedule.component.sass']
 })
 export class RoomScheduleComponent implements OnInit, OnDestroy {
+    mode: string = 'talk';
     roomName: string = '';
     currentSlot: Slot;
     nextSlot: Slot;
