@@ -43,29 +43,45 @@ export class RoomScheduleComponent implements OnInit, OnDestroy {
         let updatedTime = this.clockService.getTime();
 
         if (updatedTime != this.currentTime) {
-            this.currentTime = updatedTime;
-            let nextSlot = undefined;
-            let currentSlot = undefined;
-
-            this.slots.forEach(slot => {
-                if (slot.fromTime <= this.currentTime && slot.toTime > this.currentTime) {
-                    currentSlot = slot;
-                }
-
-                if (slot.fromTime > this.currentTime && (!nextSlot || nextSlot.fromTime > slot.fromTime)) {
-                    nextSlot = slot;
-                }
-            });
-
-            console.log(currentSlot, nextSlot);
-
-            this.nextSlot = nextSlot;
-            this.currentSlot = currentSlot;
-            this.roomName = nextSlot.roomName;
+            this.updateSlots(updatedTime);
         }
     }
 
-    loadRoom(roomId: string): void {
+    private updateSlots(updatedTime: string) {
+        this.currentTime = updatedTime;
+
+        if (updatedTime < this.slots[0].fromTime) {
+            this.mode = 'opening';
+            return;
+        }
+
+        if (updatedTime > this.slots[this.slots.length - 1].toTime) {
+            this.mode = 'closing';
+            return;
+        }
+
+        this.mode = 'talk';
+        let nextSlot = undefined;
+        let currentSlot = undefined;
+
+        this.slots.forEach(slot => {
+            if (slot.fromTime <= this.currentTime && slot.toTime > this.currentTime) {
+                currentSlot = slot;
+            }
+
+            if (slot.fromTime > this.currentTime && (!nextSlot || nextSlot.fromTime > slot.fromTime)) {
+                nextSlot = slot;
+            }
+        });
+
+        console.log(currentSlot, nextSlot);
+
+        this.nextSlot = nextSlot;
+        this.currentSlot = currentSlot;
+        this.roomName = nextSlot.roomName;
+    }
+
+    private loadRoom(roomId: string): void {
         this.scheduleService.getSchedule().subscribe(s => {
             let slots = s.slots;
             let localslots = [];
