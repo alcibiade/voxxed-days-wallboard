@@ -1,8 +1,15 @@
 <div class="container-fluid">
     <div class="row roominfo">
-        <div class="col-md-12">
-            <h2>Room {{roomName}} <span style="float: right;">{{currentTime}}</span></h2>
+        <div class="col-md-4">
+            <img class="logo" src="../assets/Logo-VoxxedDaysLuxembourg.png"/>
         </div>
+        <div class="col-md-4">
+            <div class="title">Room {{roomName}}</div>
+        </div>
+        <div class="col-md-4">
+            <div class="title">{{currentTime}}</div>
+        </div>
+
     </div>
     <div class="row" *ngIf="mode == 'opening'">
         <titles-opening></titles-opening>
