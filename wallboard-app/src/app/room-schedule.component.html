@@ -4,7 +4,7 @@
             <div class="container-fluid">
                 <div class="row roominfo">
                     <div class="col-md-4">
-                        <img class="logo" src="../assets/Logo-VoxxedDaysLuxembourg.png"/>
+                        <img class="logo" src="../assets/Logo-VoxxedDaysLuxembourg-Alpha.png"/>
                     </div>
                     <div class="col-md-4">
                         <div class="title">Room {{roomName}}</div>
@@ -20,7 +20,7 @@
                 <div class="row" *ngIf="mode == 'closing'">
                     <titles-closing></titles-closing>
                 </div>
-                <div class="row" *ngIf="mode == 'talk'">
+                <div class="row talks" *ngIf="mode == 'talk'">
                     <div class="col-md-12">
                         <div class="container-fluid">
                             <div class="row">
