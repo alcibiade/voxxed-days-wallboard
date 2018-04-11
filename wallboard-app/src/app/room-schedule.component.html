@@ -25,7 +25,7 @@
                         <div class="container-fluid">
                             <div class="row">
                                 <div class="col-md-6">
-                                    <div class="talk-wrapper">
+                                    <div *ngIf="currentSlot" class="talk-wrapper">
                                         <h3>Current Talk</h3>
                                         <app-slot-details *ngIf="currentSlot" [slot]="currentSlot"></app-slot-details>
                                     </div>
