@@ -11,16 +11,25 @@
         <titles-closing></titles-closing>
     </div>
     <div class="row" *ngIf="mode == 'talk'">
-        <div class="col-md-5 talk-wrapper current">
-            <h3>Current Talk</h3>
-            <app-slot-details *ngIf="currentSlot" [slot]="currentSlot"></app-slot-details>
-        </div>
-        <div class="col-md-5 talk-wrapper next">
-            <div *ngIf="nextSlot">
-                <h3>Next Talk at {{nextSlot.fromTime}}</h3>
-                <app-slot-details [slot]="nextSlot"></app-slot-details>
+        <div class="col-md-10">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="talk-wrapper">
+                            <h3>Current Talk</h3>
+                            <app-slot-details *ngIf="currentSlot" [slot]="currentSlot"></app-slot-details>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div *ngIf="nextSlot" class="talk-wrapper">
+                            <h3>Next Talk at {{nextSlot.fromTime}}</h3>
+                            <app-slot-details [slot]="nextSlot"></app-slot-details>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
+
         <div class="col-md-2 feed">
             <twitter-feed></twitter-feed>
         </div>

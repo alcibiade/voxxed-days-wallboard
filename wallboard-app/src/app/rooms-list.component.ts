@@ -5,7 +5,7 @@ import {ScheduleService} from "./schedule.service";
 @Component({
     selector: 'app-rooms-list',
     templateUrl: './rooms-list.component.html',
-    styleUrls: ['./rooms-list.component.css']
+    styleUrls: ['./rooms-list.component.sass']
 })
 export class RoomsListComponent implements OnInit {
     rooms: Set<Room>;

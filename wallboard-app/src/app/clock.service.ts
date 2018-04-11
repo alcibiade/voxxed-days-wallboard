@@ -14,7 +14,7 @@ export class ClockService {
         this.dateFormat = 'hh:mm';
         this.accelerationFactor = 60;
         this.baseTime = moment();
-        this.mappedHour = 8;
+        this.mappedHour = 10;
     }
 
     getTime(): string {
