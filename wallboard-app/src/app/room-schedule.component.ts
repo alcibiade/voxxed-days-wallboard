@@ -50,16 +50,6 @@ export class RoomScheduleComponent implements OnInit, OnDestroy {
     private updateSlots(updatedTime: string) {
         this.currentTime = updatedTime;
 
-        if (updatedTime < this.slots[0].fromTime) {
-            this.mode = 'opening';
-            return;
-        }
-
-        if (updatedTime > this.slots[this.slots.length - 1].toTime) {
-            this.mode = 'closing';
-            return;
-        }
-
         this.mode = 'talk';
         let nextSlot = undefined;
         let currentSlot = undefined;
@@ -79,6 +69,14 @@ export class RoomScheduleComponent implements OnInit, OnDestroy {
         this.nextSlot = nextSlot;
         this.currentSlot = currentSlot;
         this.roomName = nextSlot.roomName;
+
+        if (updatedTime < this.slots[0].fromTime) {
+            this.mode = 'opening';
+        }
+
+        if (updatedTime > this.slots[this.slots.length - 1].toTime) {
+            this.mode = 'closing';
+        }
     }
 
     private loadRoom(roomId: string): void {
