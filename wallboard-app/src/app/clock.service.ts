@@ -29,4 +29,16 @@ export class ClockService {
         }
     }
 
+    calculateProgress(timeFrom: string, timeTo: string, timeNow: string) {
+        let mFrom: Moment = moment(timeFrom, this.dateFormat);
+        let mTo: Moment = moment(timeTo, this.dateFormat);
+        let mNow: Moment = moment(timeNow, this.dateFormat);
+
+        let progress = moment.duration(mNow.diff(mFrom));
+        let total = moment.duration(mTo.diff(mFrom));
+
+        let percent = 100 * progress.asMinutes() / total.asMinutes();
+
+        return percent + '%';
+    }
 }

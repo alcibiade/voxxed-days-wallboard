@@ -14,6 +14,7 @@ import {Ng4TwitterTimelineModule} from "ng4-twitter-timeline/lib";
 import {TwitterFeedComponent} from "./twitter-feed";
 import {TitlesOpeningComponent} from "./titles-opening.component";
 import {TitlesClosingComponent} from "./titles-closing.component";
+import {TalkProgressComponent} from "./talk-progress.component";
 
 const appRoutes: Routes = [
     {path: 'rooms', component: RoomsListComponent},
@@ -33,7 +34,8 @@ const appRoutes: Routes = [
         SlotDetailsComponent,
         TwitterFeedComponent,
         TitlesOpeningComponent,
-        TitlesClosingComponent
+        TitlesClosingComponent,
+        TalkProgressComponent
     ],
     imports: [
         RouterModule.forRoot(appRoutes, {enableTracing: false}),

@@ -26,7 +26,11 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <div *ngIf="currentSlot" class="talk-wrapper">
-                                        <h3>Current Talk</h3>
+                                        <h3>Current Talk
+                                            <talk-progress [timeFrom]="currentSlot.fromTime"
+                                                           [timeTo]="currentSlot.toTime"
+                                                           [timeNow]="currentTime"></talk-progress>
+                                        </h3>
                                         <app-slot-details *ngIf="currentSlot" [slot]="currentSlot"></app-slot-details>
                                     </div>
                                 </div>
