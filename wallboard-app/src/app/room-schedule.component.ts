@@ -16,6 +16,8 @@ export class RoomScheduleComponent implements OnInit, OnDestroy {
     currentSlot: Slot;
     nextSlot: Slot;
     slots: Slot[] = [];
+    dayStart: string;
+    dayEnd: string;
     timerSubscription: Subscription;
     currentTime: string = '00:00';
 
@@ -70,11 +72,11 @@ export class RoomScheduleComponent implements OnInit, OnDestroy {
         this.currentSlot = currentSlot;
         this.roomName = nextSlot.roomName;
 
-        if (updatedTime < this.slots[0].fromTime) {
+        if (updatedTime < this.dayStart) {
             this.mode = 'opening';
         }
 
-        if (updatedTime > this.slots[this.slots.length - 1].toTime) {
+        if (updatedTime > this.dayEnd) {
             this.mode = 'closing';
         }
     }
@@ -83,16 +85,30 @@ export class RoomScheduleComponent implements OnInit, OnDestroy {
         this.scheduleService.getSchedule().subscribe(s => {
             let slots = s.slots;
             let localslots = [];
+            let dayStart = undefined;
+            let dayEnd = undefined;
 
             for (let slot of slots) {
                 if (slot.roomId == roomId) {
                     localslots.push(slot);
+                }
+
+                if (slot.roomId != 'b_hall') {
+                    if (!dayStart || dayStart > slot.fromTime) {
+                        dayStart = slot.fromTime;
+                    }
+
+                    if (!dayEnd || dayEnd < slot.toTime) {
+                        dayEnd = slot.toTime;
+                    }
                 }
             }
 
             console.log('Slots for room', roomId, 'are', localslots);
 
             this.slots = localslots;
+            this.dayStart = dayStart;
+            this.dayEnd = dayEnd;
             this.timerSubscription = Observable.timer(2000, 1000).subscribe(() => this.tick());
         });
     }
