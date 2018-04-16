@@ -29,7 +29,8 @@
                                         <h3>Current Talk
                                             <talk-progress [timeFrom]="currentSlot.fromTime"
                                                            [timeTo]="currentSlot.toTime"
-                                                           [timeNow]="currentTime"></talk-progress>
+                                                           [timeNow]="currentTime"
+                                                           style="float: right"></talk-progress>
                                         </h3>
                                         <app-slot-details *ngIf="currentSlot" [slot]="currentSlot"></app-slot-details>
                                     </div>

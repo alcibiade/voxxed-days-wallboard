@@ -1,9 +1,6 @@
 <div class="row" *ngIf="slot.talk; else noTalk">
     <div class="col-md-12">
         <!--<div class="slot">From {{slot.fromTime}} to {{slot.toTime}}</div>-->
-        <img *ngFor="let speaker of slot.talk.speakers"
-             class="speaker-avatar"
-             src="{{speaker.details.avatarURL}}"/>
         <div class="track">{{slot.talk.track}}</div>
         <div class="title">{{slot.talk.title}}</div>
         <ul class="speakers">
@@ -12,6 +9,9 @@
                 ({{speaker.details.company}})
             </li>
         </ul>
+        <img *ngFor="let speaker of slot.talk.speakers"
+             class="speaker-avatar"
+             src="{{speaker.details.avatarURL}}"/>
         <div class="summary" [innerHTML]="slot.talk.summaryAsHtml"></div>
     </div>
 </div>
