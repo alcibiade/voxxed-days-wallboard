@@ -37,7 +37,7 @@ export class ClockService {
         let progress = moment.duration(mNow.diff(mFrom));
         let total = moment.duration(mTo.diff(mFrom));
 
-        let percent = 100 * progress.asMinutes() / total.asMinutes();
+        let percent = Math.round(100 * progress.asMinutes() / total.asMinutes());
 
         return percent + '%';
     }
