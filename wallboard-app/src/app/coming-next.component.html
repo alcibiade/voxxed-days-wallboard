@@ -1,0 +1,12 @@
+<div class="wrapper">
+    <table class="table table-sm">
+        <tbody>
+        <tr *ngFor="let slot of nextSlots">
+            <td>{{slot.fromTime}}</td>
+            <td>{{slot.roomName}}</td>
+            <td>{{slot.talk.track}}</td>
+            <td>{{slot.talk.title}}</td>
+        </tr>
+        </tbody>
+    </table>
+</div>

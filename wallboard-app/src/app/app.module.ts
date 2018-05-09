@@ -15,6 +15,7 @@ import {TwitterFeedComponent} from "./twitter-feed";
 import {TitlesOpeningComponent} from "./titles-opening.component";
 import {TitlesClosingComponent} from "./titles-closing.component";
 import {TalkProgressComponent} from "./talk-progress.component";
+import {ComingNextComponent} from "./coming-next.component";
 
 const appRoutes: Routes = [
     {path: 'rooms', component: RoomsListComponent},
@@ -35,7 +36,8 @@ const appRoutes: Routes = [
         TwitterFeedComponent,
         TitlesOpeningComponent,
         TitlesClosingComponent,
-        TalkProgressComponent
+        TalkProgressComponent,
+        ComingNextComponent
     ],
     imports: [
         RouterModule.forRoot(appRoutes, {enableTracing: false}),

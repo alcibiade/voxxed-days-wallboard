@@ -17,6 +17,7 @@ export class Speaker {
 }
 
 export class Talk {
+    title: string;
     speakers: Speaker[];
     lang: string;
     summary: string;
