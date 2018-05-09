@@ -5,7 +5,7 @@ import {environment} from "../environments/environment";
 
 @Injectable()
 export class ClockService {
-    private readonly dateFormat: string = 'hh:mm';
+    private readonly dateFormat: string = 'HH:mm';
     private baseTime: Moment;
     private accelerationFactor: number;
     private mappedHour: number;
