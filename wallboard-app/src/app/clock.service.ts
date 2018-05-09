@@ -5,13 +5,12 @@ import {environment} from "../environments/environment";
 
 @Injectable()
 export class ClockService {
-    private dateFormat: string;
+    private readonly dateFormat: string = 'hh:mm';
     private baseTime: Moment;
     private accelerationFactor: number;
     private mappedHour: number;
 
     constructor() {
-        this.dateFormat = 'hh:mm';
         this.accelerationFactor = 60;
         this.baseTime = moment();
         this.mappedHour = 10;
