@@ -13,7 +13,7 @@ export class ClockService {
     constructor() {
         this.accelerationFactor = 60;
         this.baseTime = moment();
-        this.mappedHour = 7;
+        this.mappedHour = 8;
     }
 
     getTime(): string {
