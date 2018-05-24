@@ -20,6 +20,7 @@ export class RoomScheduleComponent implements OnInit, OnDestroy {
     dayEnd: string;
     timerSubscription: Subscription;
     currentTime: string = '00:00';
+    easterEgg: boolean = false;
 
     constructor(private route: ActivatedRoute,
                 private router: Router,
@@ -51,6 +52,8 @@ export class RoomScheduleComponent implements OnInit, OnDestroy {
 
     private updateSlots(updatedTime: string) {
         this.currentTime = updatedTime;
+
+        this.easterEgg = true;//updatedTime.substring(3, 5) == '42';
 
         this.mode = 'talk';
         let nextSlot: Slot = undefined;
