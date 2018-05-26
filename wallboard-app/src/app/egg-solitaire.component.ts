@@ -1,24 +1,27 @@
-import {AfterViewInit, Component, ElementRef, OnChanges, SimpleChanges, ViewChild} from '@angular/core';
+import {AfterViewInit, Component, ElementRef, OnDestroy, ViewChild} from '@angular/core';
 
 @Component({
     selector: 'egg-solitaire',
     templateUrl: './egg-solitaire.component.html',
     styleUrls: ['./egg-solitaire.component.sass']
 })
-export class EggSolitaireComponent implements AfterViewInit, OnChanges {
+export class EggSolitaireComponent implements AfterViewInit, OnDestroy {
     @ViewChild('egg') eggCanvas: ElementRef;
     private king: HTMLImageElement = new Image();
+    private active: boolean = false;
     private posX: number = undefined;
     private posY: number = undefined;
     private spdX: number = undefined;
     private spdY: number = undefined;
 
-    constructor() {
-    }
-
     ngAfterViewInit() {
         this.king.src = 'assets/ms-king-hearts.png';
+        this.active = true;
         this.draw();
+    }
+
+    ngOnDestroy(): void {
+        this.active = false;
     }
 
     draw(): void {
@@ -45,10 +48,9 @@ export class EggSolitaireComponent implements AfterViewInit, OnChanges {
             this.posX = undefined;
         }
 
-        requestAnimationFrame(() => this.draw());
-    }
-
-    ngOnChanges(changes: SimpleChanges): void {
+        if (this.active) {
+            requestAnimationFrame(() => this.draw());
+        }
     }
 
 }

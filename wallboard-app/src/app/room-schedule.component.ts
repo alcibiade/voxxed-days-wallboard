@@ -53,8 +53,6 @@ export class RoomScheduleComponent implements OnInit, OnDestroy {
     private updateSlots(updatedTime: string) {
         this.currentTime = updatedTime;
 
-        this.easterEgg = true;//updatedTime.substring(3, 5) == '42';
-
         this.mode = 'talk';
         let nextSlot: Slot = undefined;
         let currentSlot: Slot = undefined;
@@ -87,6 +85,8 @@ export class RoomScheduleComponent implements OnInit, OnDestroy {
         if (updatedTime > this.dayEnd) {
             this.mode = 'closing';
         }
+
+        this.easterEgg = this.mode == 'talk' && updatedTime.substring(3, 5) == '42';
     }
 
     private loadRoom(roomId: string): void {
