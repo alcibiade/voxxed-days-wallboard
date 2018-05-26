@@ -17,6 +17,7 @@ import {TitlesClosingComponent} from "./titles-closing.component";
 import {TalkProgressComponent} from "./talk-progress.component";
 import {ComingNextComponent} from "./coming-next.component";
 import {EggSolitaireComponent} from "./egg-solitaire.component";
+import {EggCrashComponent} from "./egg-crash.component";
 
 const appRoutes: Routes = [
     {path: 'rooms', component: RoomsListComponent},
@@ -39,7 +40,8 @@ const appRoutes: Routes = [
         TitlesClosingComponent,
         TalkProgressComponent,
         ComingNextComponent,
-        EggSolitaireComponent
+        EggSolitaireComponent,
+        EggCrashComponent
     ],
     imports: [
         RouterModule.forRoot(appRoutes, {enableTracing: false}),

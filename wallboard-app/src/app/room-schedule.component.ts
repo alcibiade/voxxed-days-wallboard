@@ -12,6 +12,7 @@ import {ClockService} from "./clock.service";
 })
 export class RoomScheduleComponent implements OnInit, OnDestroy {
     mode: string = 'talk';
+    roomId: string = undefined;
     roomName: string = '';
     currentSlot: Slot;
     nextSlot: Slot;
@@ -20,7 +21,8 @@ export class RoomScheduleComponent implements OnInit, OnDestroy {
     dayEnd: string;
     timerSubscription: Subscription;
     currentTime: string = '00:00';
-    easterEgg: boolean = false;
+    easterEggSolitaire: boolean = false;
+    easterEggCrash: boolean = false;
 
     constructor(private route: ActivatedRoute,
                 private router: Router,
@@ -32,8 +34,8 @@ export class RoomScheduleComponent implements OnInit, OnDestroy {
         console.log('Registering route parameters');
         this.route.params.forEach((params: Params) => {
             if (params['id'] !== undefined) {
-                let id = params['id'];
-                this.loadRoom(id);
+                this.roomId = params['id'];
+                this.loadRoom(this.roomId);
             }
         });
     }
@@ -86,7 +88,8 @@ export class RoomScheduleComponent implements OnInit, OnDestroy {
             this.mode = 'closing';
         }
 
-        this.easterEgg = this.mode == 'talk' && updatedTime.substring(3, 5) == '42';
+        this.easterEggSolitaire = this.mode == 'talk' && updatedTime.substring(3, 5) == '42';
+        this.easterEggCrash = this.mode == 'talk' && updatedTime.substring(3, 5) == '37';
     }
 
     private loadRoom(roomId: string): void {
