@@ -5,7 +5,7 @@ COPY wallboard-app /runtime/
 WORKDIR /runtime
 
 RUN npm install
-RUN ./node_modules/@angular/cli/bin/ng build --dev
+RUN ./node_modules/@angular/cli/bin/ng build
 
 
 FROM httpd:2.4-alpine
